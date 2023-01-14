@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Detalhes{% endblock %}
+
+{% block conteudo_body %} 
+    <div class="container">
+        <br>
+        <form action="{% url 'atualizar_filme' %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="id_filme" value="{{filme.id}}">
+            <p>
+                <label>Nome do filme: </label>
+                <input type="text" name="nome_filme" value="{{filme.nome}}" class="form-control">
+            </p>
+            <p>
+                <label>Sinopse: </label>
+                <input type="text" name="sinopse_filme" value="{{filme.sinopse}}" class="form-control">
+            </p>
+            <p>
+                <label>Diretor: </label>
+                <input type="text" name="diretor_filme" value="{{filme.diretor}}" class="form-control">
+            </p>
+            <p>
+                <label>Ano de lançamento: </label>
+                <input type="text" name="ano_lancamento_filme" value="{{filme.ano_lancamento}}" class="form-control">
+            </p>
+            <input type="submit" class="btn btn-success" value="Salvar">
+        </form>
+    </div>
+{% endblock %}

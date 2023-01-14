@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}MyMovies{% endblock %}
+
+{% block conteudo_head %}
+    <link rel="stylesheet" href="{% static 'movies/css/movies.css' %}">
+{% endblock %}
+
+{% block conteudo_body %}
+    <div class="container">
+        <h1 id="titulo">Seus Filmes</h1>
+        <hr>
+        <a href="{% url 'criar_filme' %}" class="btn btn-success">Novo Filme</a>
+        <a href="{% url 'getfilme' %}" id="link_api">Link para a API</a>
+        <br>
+        <br>
+        {% for filme in filmes %}
+            <div class="col-md" id="filmes_cards">
+                <br>
+                <div class="card" style="width: 24rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome do filme: {{filme.nome}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Diretor: {{filme.diretor}}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Ano de lançamento: {{filme.ano_lancamento}}</h6>
+                        <a href="{% url 'ver_detalhes' filme.id %}" class="btn btn-warning" id="btn_ver_detalhes">Ver detalhes</a>
+                        <a href="{% url 'excluir_filme' filme.id %}" class="btn btn-danger">Excluir</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="{% static 'movies/js/movies.js' %}"></script>
+{% endblock %}

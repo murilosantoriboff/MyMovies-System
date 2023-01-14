@@ -1,0 +1,26 @@
+#titulo {
+    margin-top: 20px;
+}
+
+#filmes_cards {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+#btn_ver_detalhes {
+    margin-right: 8px;
+}
+
+#link_api {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+#link_api:hover {
+    margin-left: 20px;
+    text-decoration: underline;
+    color: black;
+    background-color: rgb(241, 241, 241);
+    border: 2px solid black;
+    border-radius: 5px;
+}

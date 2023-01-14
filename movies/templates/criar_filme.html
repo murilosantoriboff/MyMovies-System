@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Criar Filme{% endblock %}
+
+{% block conteudo_body %}
+    <div class="container">
+        <br>
+        <h2>Criar Filme</h2>
+        <hr>
+        <form action="{% url 'validacao_criacao_filme' %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <label>Nome do Filme:</label>
+                <input type="text" name="nome_filme" class="form-control">
+            </p>
+            <p>
+                <label>Sinopse:</label>
+                <input type="text" name="sinopse_filme" class="form-control">
+            </p>
+            <p>
+                <label>Ano de Lançamento:</label>
+                <input type="text" name="ano_lancamento_filme" class="form-control">
+            </p>
+            <p>
+                <label>Diretor do Filme:</label>
+                <input type="text" name="diretor_filme" class="form-control">
+            </p>
+            <input type="submit" value="Salvar" class="btn btn-success">
+        </form>
+    </div>
+{% endblock %}

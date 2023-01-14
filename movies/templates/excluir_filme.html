@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}Excluir Filme{% endblock %}
+
+{% block conteudo_body %}
+    <div class="container">
+        <br>
+        <h2>Quer mesmo exluir o filme: {{filme.nome}}?</h2>
+        <br>
+        <a href="{% url 'confirmar_exclusao' filme.id %}" class="btn btn-success">Sim</a>
+        <a href="{% url 'home' %}" class="btn btn-danger" style="margin-left: 50px;">Não</a>
+    </div>
+{% endblock %}
